@@ -1,0 +1,20 @@
+zabbix_export:
+  version: '5.4'
+  date: '2021-10-21T08:40:10Z'
+  media_types:
+    -
+      name: QQ-Group-Alert-Sakura
+      type: SCRIPT
+      script_name: sakura-bot.php
+      parameters:
+        - '{ALERT.MESSAGE}'
+      message_templates:
+        -
+          event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            问题发生于： {EVENT.TIME} 在 {EVENT.DATE}
+            问题名称: {EVENT.NAME}
+            主机: {HOST.NAME}
+            严重性: {EVENT.SEVERITY}
